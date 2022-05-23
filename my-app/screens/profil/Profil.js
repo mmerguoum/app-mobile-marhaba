@@ -12,7 +12,7 @@ const Profil = ({ navigation }) => {
         </View>
         <View>
             <TouchableOpacity onPress={()=> navigation.navigate('Profil')}>
-                <Image source={require('../../assets/profil.png')} style={styles.imageProfil}/>
+                <Image source={require('../../assets/Avatar-Profile-No-Background.png')} style={styles.imageProfil}/>
             </TouchableOpacity>
         </View>
         <View style={styles.infoBorder}>
@@ -33,29 +33,31 @@ export default Profil;
 const styles = StyleSheet.create({
     container:{
         backgroundColor:'black',
-        height:'100%'
+        height: '100%'
       },
     profil:{
         height:100,
         textAlign:'center',
         justifyContent:'center',
         borderWidth:2,
-        borderColor:'#FF6500',
+        borderColor:'#DFBB00',
         borderBottomRightRadius: 70,
         borderBottomLeftRadius: 70,
-        backgroundColor:'#FF5000',
+        backgroundColor:'black',
         marginBottom:80
     },
     imageProfil:{
         width:100,
         height:100,
-        bordiusRadiusLeftTop:10,
-        bordiusRadiusrightTop:10,
-        bordiusRadiusrightBottom:10,
-        bordiusRadiusLeftBottom:10,
+        borderBottomRightRadius:50,
+        borderBottomLeftRadius:50,
+        borderTopLeftRadius:50,
+        borderTopRightRadius:50,
         marginBottom:30,
         marginLeft: 'auto',
         marginRight: 'auto',
+        borderWidth:3,
+        borderColor:'#DFBB00',
     },
     textInfos:{
         textAlign:'center',
@@ -66,7 +68,7 @@ const styles = StyleSheet.create({
         fontWeight: 'bolder',
         fontSize: 25,
         borderWidth: 5,
-        borderColor: '#FF6500',
+        borderColor: '#DFBB00',
         width:100,
         borderRadius: 10
     },
@@ -74,7 +76,7 @@ const styles = StyleSheet.create({
         width: 300,
         height: 180,
         borderWidth:0.5,
-        borderColor: '#FF6500',
+        borderColor: '#DFBB00',
         marginLeft:'auto',
         marginRight:'auto',
         borderRadius: 8,

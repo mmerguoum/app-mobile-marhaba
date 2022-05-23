@@ -4,11 +4,10 @@ import {  StyleSheet, TouchableOpacity, Text, View, Image } from 'react-native';
 
 export default function Home({navigation})  {
   return (
-    <View style={{background:'black'}}>
-      
+    <View style={styles.container}>
       <View> 
         <View>
-          <Image source={require('../../assets/mangment-food-img.png')} style={styles.imageHome} />
+          <Image source={require('../../assets/AreYouHungry.png')} style={styles.imageHome} />
         </View>
           <View style={styles.viewTextImageHome}>
             <Text style={styles.textImageHome}>Receive Your Meal At Home </Text>
@@ -19,25 +18,25 @@ export default function Home({navigation})  {
               <Text style={styles.reduction}>Our Reductions</Text>
           </View>
           <View style={styles.viewImages}>
-            <View>
+            <TouchableOpacity onPress={()=> navigation.navigate('Cards')}>
             <Image style={styles.images} source={require('../../assets/humberger.webp')} />
                 <View style={styles.viewTextImageHome}>
                   <Text style={styles.textImageFeature}>-20% On Our Burger</Text>
                 </View>
-             </View>
+             </TouchableOpacity>
            <View> 
-             <View>
+             <TouchableOpacity>
              <Image style={styles.images} source={require('../../assets/salade.webp')}  />
                 <View style={styles.viewTextImageHome}>
                   <Text style={styles.textImageFeature}>-30% On Our Salad</Text>
                 </View>
-             </View>
-             <View style={{marginBottom:20}}>
+             </TouchableOpacity>
+             <TouchableOpacity style={{marginBottom:20}}>
              <Image style={styles.images} source={require('../../assets/pizza.webp')}  />
                 <View style={styles.viewTextImageHome}>
                   <Text style={styles.textImageFeature}>-40% On Our Pizzas</Text>
                 </View>
-             </View>
+             </TouchableOpacity>
             </View>   
           </View>
       </View>
@@ -45,8 +44,8 @@ export default function Home({navigation})  {
         <TouchableOpacity style={styles.buttom1} onPress={()=> navigation.navigate('Signin')}>
           <Text style={styles.btn1}>Signin</Text>
           </TouchableOpacity>
-          <TouchableOpacity onPress={()=> navigation.navigate('Profil')}>
-           <Image source={require('../../assets/profil.png')} style={styles.imageProfil}/>
+          <TouchableOpacity onPress={()=> navigation.navigate('Profil')} >
+           <Image source={require('../../assets/Avatar-Profile-No-Background.png')} style={styles.imageProfil}/>
           </TouchableOpacity>
         <TouchableOpacity style={styles.buttom1} onPress={()=> navigation.navigate('Signup')}>
         <Text style={styles.btn1}>Signup</Text>
@@ -57,12 +56,15 @@ export default function Home({navigation})  {
 } 
 
 const styles = StyleSheet.create({
+  container:{
+    backgroundColor: 'black',
+
+  },
   containerButton : {
     display:'flex',
     flexDirection:'row',
     justifyContent:'end',
-    height:'auto',
-    backgroundColor:'black', 
+    height:'auto', 
   },
   btnin: {
     justifyContent:'center',
@@ -84,7 +86,8 @@ const styles = StyleSheet.create({
     width:70,
     height:25,
     borderRadius:6,
-    backgroundColor:'#FF5000',
+    backgroundColor:'#DFBB00',
+    // '#FF5000',
     fontWeight:'bold',
     color:'white'
   },
@@ -98,7 +101,7 @@ const styles = StyleSheet.create({
     marginTop:90,
     marginBottom:30,
     borderWidth:3,
-    borderColor:'#FF5000',
+    borderColor:'#DFBB00',
     borderRadius:8,
     height:40,
     width:200
@@ -119,14 +122,15 @@ const styles = StyleSheet.create({
     marginTop:30
   },
   imageHome: {
+    width:'100%',
     height:450,     
     borderBottomLeftRadius:20,
     borderBottomRightRadius:20,
-    borderTopLeftRadius:15,
-    borderTopRightRadius:15,
-    borderWidth:5,
-    marginTop:50,
+    borderWidth:5,    
     backgroundColor:'black',
+    borderBottomColor:'#DFBB00',
+    borderTopColor:'#DFBB00',
+    borderWidth:2
     // '#FFA500'
     
   },
@@ -180,7 +184,7 @@ const styles = StyleSheet.create({
     textAlign:'center',
     marginTop:20,
     borderWidth:4,
-    borderColor:'#FF5000',
+    borderColor:'#DFBB00',
     width:80,
     height:30,
     borderRadius:5,
@@ -195,11 +199,14 @@ const styles = StyleSheet.create({
   imageProfil:{
     width:70,
     height:70,
-    bordiusRadiusLeftTop:10,
-    bordiusRadiusrightTop:10,
-    bordiusRadiusrightBottom:10,
-    bordiusRadiusLeftBottom:10,
+    borderBottomRightRadius:50,
+    borderBottomLeftRadius:50,
+    borderTopLeftRadius:50,
+    borderTopRightRadius:50,
     marginTop: 60,
-    marginBottom:30
-  }
+    marginBottom:30,
+    borderWidth:3,
+    borderColor:'#DFBB00',
+  },
+  
 })

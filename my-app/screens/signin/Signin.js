@@ -5,7 +5,7 @@ export default function Signin ({ navigation }) {
   return (
     <View style={styles.container}>
         <View style={styles.signup}>
-          <Text style={{color:'white', fontWeight:'bold',fontSize:25}}>Signup</Text> 
+          <Text style={{color:'white', fontWeight:'bold',fontSize:25}}>Signin</Text> 
         </View>
             <View style={styles.borderSignin}>
               <View style={{marginTop:60}}>
@@ -25,16 +25,19 @@ export default function Signin ({ navigation }) {
         </View>
     </View>
   )
+  
 }
+
 const styles = StyleSheet.create({
+  
   container:{
     backgroundColor:'black',
-    height:'100%'
+    height:'100%',
   },
   borderSignin:{
-    borderWidth:1,
+    borderWidth:3,
     borderRadius:8,
-    borderColor:'#FF6500',
+    borderColor:'#DFBB00',
     width:350,
     height:300,
     marginLeft: 'auto',
@@ -44,25 +47,26 @@ const styles = StyleSheet.create({
     height:100,
     textAlign:'center',
     justifyContent:'center',
-    borderWidth:2,
-    borderColor:'#FF6500',
+    borderWidth:4,
+    borderColor:'#DFBB00',
     borderBottomRightRadius: 70,
     borderBottomLeftRadius: 70,
-    backgroundColor:'#FF5000',
-    marginBottom:120
+    backgroundColor:'black',
+    marginBottom:120,
+    
   },
   textInput:{
-    borderWidth:0.5,
-    borderColor:'#FF6500',  
+    borderWidth:2,
+    borderColor:'#DFBB00',  
     borderRadius: 12,
     width:250,
     padding:10,
-   
+
   },
   input:{
     marginLeft: 'auto',
     marginRight: 'auto',
-    marginTop:10,
+    marginTop:8,
 
   },
   buttom1:{
@@ -72,14 +76,17 @@ const styles = StyleSheet.create({
     textAlign:'center',
     marginTop:20,
     borderWidth:4,
-    borderColor:'#FF6500',
+    borderColor:'#DFBB00',
     width:80,
     borderRadius:5,
+    fontWeight:'bold',
   },
   buttom2:{
     color:'white',
     textAlign:'center',
     marginTop:15,
     color:'gray',
+    fontWeight:'bold',
+
   }
 })
