@@ -25,13 +25,13 @@ export default function Home({navigation})  {
                 </View>
              </TouchableOpacity>
            <View> 
-             <TouchableOpacity>
+             <TouchableOpacity onPress={()=> navigation.navigate('Cards')}>
              <Image style={styles.images} source={require('../../assets/salade.webp')}  />
                 <View style={styles.viewTextImageHome}>
                   <Text style={styles.textImageFeature}>-30% On Our Salad</Text>
                 </View>
              </TouchableOpacity>
-             <TouchableOpacity style={{marginBottom:20}}>
+             <TouchableOpacity style={{marginBottom:20}} onPress={()=> navigation.navigate('Cards')}>
              <Image style={styles.images} source={require('../../assets/pizza.webp')}  />
                 <View style={styles.viewTextImageHome}>
                   <Text style={styles.textImageFeature}>-40% On Our Pizzas</Text>
@@ -40,17 +40,20 @@ export default function Home({navigation})  {
             </View>   
           </View>
       </View>
-      <View style={styles.containerButton}>
-        <TouchableOpacity style={styles.buttom1} onPress={()=> navigation.navigate('Signin')}>
+      {/* <View> */}
+        {/* <TouchableOpacity style={styles.buttom1} onPress={()=> navigation.navigate('Signin')}>
           <Text style={styles.btn1}>Signin</Text>
-          </TouchableOpacity>
+          </TouchableOpacity> */}
           <TouchableOpacity onPress={()=> navigation.navigate('Profil')} >
            <Image source={require('../../assets/Avatar-Profile-No-Background.png')} style={styles.imageProfil}/>
           </TouchableOpacity>
-        <TouchableOpacity style={styles.buttom1} onPress={()=> navigation.navigate('Signup')}>
+          <TouchableOpacity onPress={()=> navigation.navigate('Signin')}>
+          <Text style={styles.logOut}>Log Out</Text>
+          </TouchableOpacity>
+        {/* <TouchableOpacity style={styles.buttom1} onPress={()=> navigation.navigate('Signup')}>
         <Text style={styles.btn1}>Signup</Text>
-        </TouchableOpacity>  
-      </View>   
+        </TouchableOpacity>   */}
+      {/* </View>    */}
     </View>
   )
 } 
@@ -60,11 +63,11 @@ const styles = StyleSheet.create({
     backgroundColor: 'black',
 
   },
-  containerButton : {
-    display:'flex',
-    flexDirection:'row',
-    justifyContent:'end',
-    height:'auto', 
+  logOut : {
+    marginBottom:20,
+    marginLeft:'auto' ,
+    marginRight:'auto', 
+    color: 'gray'
   },
   btnin: {
     justifyContent:'center',
@@ -204,7 +207,9 @@ const styles = StyleSheet.create({
     borderTopLeftRadius:50,
     borderTopRightRadius:50,
     marginTop: 60,
-    marginBottom:30,
+    marginBottom:10,
+    marginRight: 'auto',
+    marginLeft: 'auto',
     borderWidth:3,
     borderColor:'#DFBB00',
   },

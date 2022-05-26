@@ -1,22 +1,62 @@
-import React from 'react'
+import React, {useState} from 'react'
 import { View, Text, TouchableOpacity, TextInput, StyleSheet } from "react-native"
+import { useDispatch, Provider } from "react-redux";
+import { loginAction , setRoleAction , setIdAction } from "../../actions/authActions"
+import axios from "axios"
 
-export default function Signin ({ navigation }) {
+const Signin = ({ navigation }) => {
+
+ const [data , setData] = useState({
+    email : "",
+    password : ""
+  });
+  
+    const [submitted, setSubmitted] = useState(false);
+  
+    const handleEmail = (e) => {
+      setData({ ...data, email: e });
+    };
+
+  
+    const login =(data)=> {
+     return axios.post(`http://localhost:4001/api/users/signin`, data);
+   }
+  
+    const handlePassword = (e) => {
+      setData({ ...data,password: e });
+    };
+  
+    const handleSubmit =()=> {
+      login(data).then((response) => {
+        console.log(response);
+        (async () => {
+          console.log(response.data.token)
+          await dispatch(loginAction());
+          await dispatch(setRoleAction(jwtDecode(response.data.token).role));
+          await dispatch(setIdAction(jwtDecode(response.data.token)._id));
+        })()
+        navigation.navigate('Home')
+      }).catch((err) => console.log('err',err.response));
+      setSubmitted(true);
+      navigation.navigate('Home')
+    };
   return (
+
     <View style={styles.container}>
         <View style={styles.signup}>
           <Text style={{color:'white', fontWeight:'bold',fontSize:25}}>Signin</Text> 
         </View>
             <View style={styles.borderSignin}>
               <View style={{marginTop:60}}>
-                <View style={styles.input}>
-                    <TextInput placeholder="Email..." style={styles.textInput}></TextInput>
+                <View style={styles.input}>                    
+                    <TextInput placeholder="Email..." style={styles.textInput} email={data.email} onChangeText={handleEmail} />
+                    
                 </View>
                 <View style={styles.input}>
-                    <TextInput placeholder="Password..." style={styles.textInput}></TextInput>
+                    <TextInput placeholder="Password..." secureTextEntry={true} style={styles.textInput} password={data.password} onChangeText={handlePassword} />
                 </View>
-                    <TouchableOpacity >
-                        <Text style={styles.buttom1} onPress={() => navigation.navigate("Home")}>Done</Text>
+                    <TouchableOpacity >                    
+                        <Text style={styles.buttom1} onPress={handleSubmit}>Done</Text>                       
                     </TouchableOpacity>
                     <TouchableOpacity>
                     <Text style={styles.buttom2} onPress={() => navigation.navigate("Signup")}> Go To Signup</Text>
@@ -24,9 +64,9 @@ export default function Signin ({ navigation }) {
             </View>
         </View>
     </View>
-  )
-  
+  )  
 }
+export default Signin
 
 const styles = StyleSheet.create({
   
@@ -61,6 +101,7 @@ const styles = StyleSheet.create({
     borderRadius: 12,
     width:250,
     padding:10,
+    color: 'white',
 
   },
   input:{
@@ -90,3 +131,4 @@ const styles = StyleSheet.create({
 
   }
 })
+
