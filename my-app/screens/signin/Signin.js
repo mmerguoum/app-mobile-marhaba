@@ -38,7 +38,7 @@ const Signin = ({ navigation }) => {
         navigation.navigate('Home')
       }).catch((err) => console.log('err',err.response));
       setSubmitted(true);
-      navigation.navigate('Home')
+
     };
   return (
 
@@ -55,8 +55,8 @@ const Signin = ({ navigation }) => {
                 <View style={styles.input}>
                     <TextInput placeholder="Password..." secureTextEntry={true} style={styles.textInput} password={data.password} onChangeText={handlePassword} />
                 </View>
-                    <TouchableOpacity >                    
-                        <Text style={styles.buttom1} onPress={handleSubmit}>Done</Text>                       
+                    <TouchableOpacity onPress={handleSubmit}>                    
+                        <Text style={styles.buttom1} >Done</Text>                       
                     </TouchableOpacity>
                     <TouchableOpacity>
                     <Text style={styles.buttom2} onPress={() => navigation.navigate("Signup")}> Go To Signup</Text>
